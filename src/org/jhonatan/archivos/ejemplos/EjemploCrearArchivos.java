@@ -11,6 +11,6 @@ public class EjemploCrearArchivos {
 
         // instancia de ArchivoServicio
         ArchivoServicio service = new ArchivoServicio();
-        service.crearArchivo(nombreArchivo);
+        service.crearArchivo02(nombreArchivo);
     }
 }
