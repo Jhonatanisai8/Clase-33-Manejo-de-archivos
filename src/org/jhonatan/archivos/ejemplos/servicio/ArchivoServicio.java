@@ -23,11 +23,12 @@ public class ArchivoServicio {
         }
     }
 
-     public void crearArchivo02(String nombre) {
+    public void crearArchivo02(String nombre) {
         File archivo = new File(nombre);
 
         try {
-            FileWriter escritor = new FileWriter(archivo, true);// true para conservar lo escrito si tiene contenido agrega nuevo contenido
+            FileWriter escritor = new FileWriter(archivo, true);// true para conservar lo escrito si tiene contenido
+                                                                // agrega nuevo contenido
 
             BufferedWriter buffer = new BufferedWriter(escritor);
 
@@ -42,4 +43,22 @@ public class ArchivoServicio {
             System.out.println("Error al crear archivo: " + e.getMessage());
         }
     }
+
+    public void crearArchivo03(String nombre) {
+        File archivo = new File(nombre);
+
+        try (BufferedWriter buffer = new BufferedWriter(new FileWriter(archivo, true))) {
+            // escribimos
+            buffer.append("Hola que tal Amigos!.\n")
+                    .append("Todo Bien? yo aca escribiendo un archivo....\n")
+                    .append("Hasta luego Lucas!...\n");
+            buffer.close();
+            System.out.println("El archivo se ah creado con exito...");
+
+        } catch (Exception e) {
+            System.out.println("Error al crear archivo: " + e.getMessage());
+        }
+    }
+
+    
 }
