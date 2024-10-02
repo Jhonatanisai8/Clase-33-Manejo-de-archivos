@@ -91,6 +91,8 @@ public class ArchivoServicio {
             while ((linea = reader.readLine()) != null) {
                 sb.append(linea).append("\n");
             }
+
+            reader.close();
         } catch (Exception e) {
             System.out.println("Error al leer archivo: " + e.getMessage());
         }
@@ -105,11 +107,12 @@ public class ArchivoServicio {
         try {
             Scanner leer = new Scanner(archivo);
             // limitador
-            leer.useDelimiter("\n"); 
+            leer.useDelimiter("\n");
 
             while (leer.hasNext()) {
                 sb.append(leer.next()).append("\n");
             }
+            leer.close();
         } catch (Exception e) {
             System.out.println("Error al leer archivo: " + e.getMessage());
         }
