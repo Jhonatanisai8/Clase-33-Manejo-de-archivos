@@ -1,9 +1,11 @@
 package org.jhonatan.archivos.ejemplos.servicio;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.io.*;
 
 public class ArchivoServicio {
     public void crearArchivo(String nombre) {
@@ -75,5 +77,23 @@ public class ArchivoServicio {
         } catch (Exception e) {
             System.out.println("Error al crear archivo: " + e.getMessage());
         }
+    }
+
+    public String leerArchivos(String nombre) {
+
+        StringBuilder sb = new StringBuilder();
+        File archivo = new File(nombre);
+        try {
+            FileReader lectura = new FileReader(archivo);
+            BufferedReader reader = new BufferedReader(lectura);
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                sb.append(linea).append("\n");
+            }
+        } catch (Exception e) {
+            System.out.println("Error al leer archivo: "+e.getMessage());            
+        }
+        return sb.toString();
+
     }
 }
