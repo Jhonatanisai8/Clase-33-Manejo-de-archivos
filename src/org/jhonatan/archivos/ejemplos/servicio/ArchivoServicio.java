@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.Scanner;
 import java.io.*;
 
 public class ArchivoServicio {
@@ -91,9 +92,29 @@ public class ArchivoServicio {
                 sb.append(linea).append("\n");
             }
         } catch (Exception e) {
-            System.out.println("Error al leer archivo: "+e.getMessage());            
+            System.out.println("Error al leer archivo: " + e.getMessage());
         }
         return sb.toString();
 
     }
+
+    public String leerArchivos02(String nombre) {
+
+        StringBuilder sb = new StringBuilder();
+        File archivo = new File(nombre);
+        try {
+            Scanner leer = new Scanner(archivo);
+            // limitador
+            leer.useDelimiter("\n"); 
+
+            while (leer.hasNext()) {
+                sb.append(leer.next()).append("\n");
+            }
+        } catch (Exception e) {
+            System.out.println("Error al leer archivo: " + e.getMessage());
+        }
+        return sb.toString();
+
+    }
+
 }

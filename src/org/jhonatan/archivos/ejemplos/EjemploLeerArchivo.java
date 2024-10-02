@@ -7,7 +7,7 @@ public class EjemploLeerArchivo {
         ArchivoServicio servicio = new ArchivoServicio();
 
         // llamamos al metodo leer archivo y le pasamos la ruta
-        System.out.println(servicio.leerArchivos("C:\\Users\\User\\Desktop\\miPrimerArchivo.txt"));
+        System.out.println(servicio.leerArchivos02("C:\\Users\\User\\Desktop\\miPrimerArchivo.txt"));
 
     }
 }
